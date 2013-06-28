@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ListViewcController : UITableViewController
+@class RSSChannel;
+
+@interface ListViewcController : UITableViewController <NSXMLParserDelegate>
 {
     NSURLConnection *connection;
     NSMutableData *xmlData;
+    RSSChannel *channel;
 }
 - (void)fetchEntries;
 @end

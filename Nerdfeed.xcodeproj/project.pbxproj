@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35119F24177DCCAA00B09FFA /* RSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35119F23177DCCAA00B09FFA /* RSSChannel.m */; };
 		E7C0B090177834E400B8C738 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C0B08F177834E400B8C738 /* UIKit.framework */; };
 		E7C0B092177834E400B8C738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C0B091177834E400B8C738 /* Foundation.framework */; };
 		E7C0B094177834E400B8C738 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C0B093177834E400B8C738 /* CoreGraphics.framework */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35119F22177DCCAA00B09FFA /* RSSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSChannel.h; sourceTree = "<group>"; };
+		35119F23177DCCAA00B09FFA /* RSSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSChannel.m; sourceTree = "<group>"; };
 		E7C0B08C177834E400B8C738 /* Nerdfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nerdfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C0B08F177834E400B8C738 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7C0B091177834E400B8C738 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,6 +86,8 @@
 			children = (
 				E7C0B0AC1778355400B8C738 /* ListViewcController.h */,
 				E7C0B0AD1778355400B8C738 /* ListViewcController.m */,
+				35119F22177DCCAA00B09FFA /* RSSChannel.h */,
+				35119F23177DCCAA00B09FFA /* RSSChannel.m */,
 				E7C0B09E177834E400B8C738 /* NerdfeedAppDelegate.h */,
 				E7C0B09F177834E400B8C738 /* NerdfeedAppDelegate.m */,
 				E7C0B096177834E400B8C738 /* Supporting Files */,
@@ -173,6 +178,7 @@
 				E7C0B09C177834E400B8C738 /* main.m in Sources */,
 				E7C0B0A0177834E400B8C738 /* NerdfeedAppDelegate.m in Sources */,
 				E7C0B0AE1778355400B8C738 /* ListViewcController.m in Sources */,
+				35119F24177DCCAA00B09FFA /* RSSChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +295,7 @@
 				E7C0B0AB177834E400B8C738 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

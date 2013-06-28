@@ -7,6 +7,7 @@
 //
 
 #import "ListViewcController.h"
+#import "RSSChannel.h"
 
 @implementation ListViewcController
 
@@ -26,9 +27,21 @@
     xmlData = [[NSMutableData alloc] init];
     
     NSURL *url = [NSURL URLWithString:@"http://forums.bignerdranch.com/smartfeed.php?"
-                  @"limit=1_DAY&sort_by=standard&feeed_type=RSS2.0&feed_style=COMPACT"];
+                  @"limit=1_DAY&sort_by=standard&feed_type=RSS2.0&feed_style=COMPACT"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     connection = [[NSURLConnection alloc] initWithRequest:req delegate:self startImmediately:YES];
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+{
+    NSLog(@"%@ found a %@ element", self, elementName);
+    
+    if ([elementName isEqual:@"channel"]) {
+        channel = [[RSSChannel alloc] init];
+        // Give the channel object a pointer back to ourselves for later
+        [channel setParentParserDelegate:self];
+        [parser setDelegate:channel];
+    }
 }
 
 - (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
@@ -39,8 +52,14 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)conn
 {
-    NSString *xmlCheck = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
-    NSLog(@"xmlCheck = %@", xmlCheck);
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
+    [parser setDelegate:self];
+    [parser parse];
+    
+    xmlData = nil;
+    connection = nil;
+    
+    [[self tableView] reloadData];
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
