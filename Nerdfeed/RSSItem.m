@@ -1,49 +1,30 @@
 //
-//  RSSChannel.m
+//  RSSItem.m
 //  Nerdfeed
 //
-//  Created by Phoebe Lv on 28/06/13.
+//  Created by Alan Huang on 29/06/13.
 //  Copyright (c) 2013 Alan Huang. All rights reserved.
 //
 
-#import "RSSChannel.h"
 #import "RSSItem.h"
 
-@implementation RSSChannel
+@implementation RSSItem
 
-@synthesize items, title, infoString, parentParserDelegate;
-
-- (id)init
-{
-    self = [super init];
-    
-    if (self) {
-        items = [[NSMutableArray alloc] init];
-    }
-    
-    return self;
-}
+@synthesize title, link, parentParserDelegate;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    NSLog(@"\t%@ found a %@ element", self, elementName);
+    NSLog(@"\t\t%@ found a %@ element", self, elementName);
     
-    if ([elementName isEqual:@"title"]) {
+    if ([elementName isEqual:@"title"])
+    {
         currentString = [[NSMutableString alloc] init];
         [self setTitle:currentString];
     }
-    else if ([elementName isEqual:@"description"])
+    else if ([elementName isEqual:@"link"])
     {
         currentString = [[NSMutableString alloc] init];
-        [self setInfoString:currentString];
-    }
-    else if ([elementName isEqual:@"item"])
-    {
-        RSSItem *entry = [[RSSItem alloc] init];
-        [entry setParentParserDelegate:self];
-        [parser setDelegate:entry];
-        
-        [items addObject:entry];
+        [self setLink:currentString];
     }
 }
 
@@ -56,7 +37,7 @@
 {
     currentString = nil;
     
-    if ([elementName isEqual:@"channel"])
+    if ([elementName isEqual:@"item"])
     {
         [parser setDelegate:parentParserDelegate];
     }

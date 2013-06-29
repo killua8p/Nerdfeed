@@ -8,6 +8,7 @@
 
 #import "NerdfeedAppDelegate.h"
 #import "ListViewcController.h"
+#import "WebViewController.h"
 
 @implementation NerdfeedAppDelegate
 
@@ -18,6 +19,10 @@
     
     ListViewcController *lvc = [[ListViewcController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:lvc];
+    
+    WebViewController *wvc = [[WebViewController alloc] init];
+    [lvc setWebViewController:wvc];
+    
     [[self window] setRootViewController:masterNav];
     
     self.window.backgroundColor = [UIColor whiteColor];

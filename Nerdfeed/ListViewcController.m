@@ -8,8 +8,12 @@
 
 #import "ListViewcController.h"
 #import "RSSChannel.h"
+#import "RSSItem.h"
+#import "WebViewController.h"
 
 @implementation ListViewcController
+
+@synthesize webViewController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,6 +64,7 @@
     connection = nil;
     
     [[self tableView] reloadData];
+    NSLog(@"%@\n %@\n %@\n", channel, [channel title], [channel infoString]);
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
@@ -73,12 +78,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [[channel items] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    }
+    
+    RSSItem *item = [[channel items] objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[item title]];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[self navigationController] pushViewController:webViewController animated:YES];
+    
+    RSSItem *item = [[channel items] objectAtIndex:[indexPath row]];
+    NSURL *url = [NSURL URLWithString:[item link]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [[webViewController webView] loadRequest:request];
+    
+    [[webViewController navigationItem] setTitle:[item title]];
 }
 
 @end

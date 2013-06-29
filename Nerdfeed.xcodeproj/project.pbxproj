@@ -18,6 +18,8 @@
 		E7C0B0A4177834E400B8C738 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7C0B0A3177834E400B8C738 /* Default@2x.png */; };
 		E7C0B0A6177834E400B8C738 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7C0B0A5177834E400B8C738 /* Default-568h@2x.png */; };
 		E7C0B0AE1778355400B8C738 /* ListViewcController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C0B0AD1778355400B8C738 /* ListViewcController.m */; };
+		E7E2C967177EBC5800548420 /* RSSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E2C966177EBC5800548420 /* RSSItem.m */; };
+		E7E2C96A177EC73F00548420 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E2C969177EC73F00548420 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,10 @@
 		E7C0B0A5177834E400B8C738 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E7C0B0AC1778355400B8C738 /* ListViewcController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewcController.h; sourceTree = "<group>"; };
 		E7C0B0AD1778355400B8C738 /* ListViewcController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewcController.m; sourceTree = "<group>"; };
+		E7E2C965177EBC5800548420 /* RSSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSItem.h; sourceTree = "<group>"; };
+		E7E2C966177EBC5800548420 /* RSSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSItem.m; sourceTree = "<group>"; };
+		E7E2C968177EC73F00548420 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		E7E2C969177EC73F00548420 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,10 @@
 			children = (
 				E7C0B0AC1778355400B8C738 /* ListViewcController.h */,
 				E7C0B0AD1778355400B8C738 /* ListViewcController.m */,
+				E7E2C968177EC73F00548420 /* WebViewController.h */,
+				E7E2C969177EC73F00548420 /* WebViewController.m */,
+				E7E2C965177EBC5800548420 /* RSSItem.h */,
+				E7E2C966177EBC5800548420 /* RSSItem.m */,
 				35119F22177DCCAA00B09FFA /* RSSChannel.h */,
 				35119F23177DCCAA00B09FFA /* RSSChannel.m */,
 				E7C0B09E177834E400B8C738 /* NerdfeedAppDelegate.h */,
@@ -179,6 +189,8 @@
 				E7C0B0A0177834E400B8C738 /* NerdfeedAppDelegate.m in Sources */,
 				E7C0B0AE1778355400B8C738 /* ListViewcController.m in Sources */,
 				35119F24177DCCAA00B09FFA /* RSSChannel.m in Sources */,
+				E7E2C967177EBC5800548420 /* RSSItem.m in Sources */,
+				E7E2C96A177EC73F00548420 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
